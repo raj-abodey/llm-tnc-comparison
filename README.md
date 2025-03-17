@@ -10,9 +10,9 @@ Objective:
 Different solutions were experimented. This included evaluating different embedding models and open source models. The main LLM used is Azure GPT4-o. 
 
 Embedding models evaluated:
-1. Openai Ada embedding model
-2. Huggingface "multilingual-e5-large-instruct" (Selected based on MTEB)
-3. Huggingface legal domain quantised model: "law-LLM-GGUF:Q5_K_M"
+1. Openai Ada embedding model (ref: openaiEMb)
+2. Huggingface "multilingual-e5-large-instruct" (Selected based on MTEB) (ref: opensourceEmb)
+3. Huggingface legal domain quantised model: "law-LLM-GGUF:Q5_K_M" (ref: ollamaEmb)
 
 ## Different approaches for document comparison and summarisation
 1. Baseline with no RAG: Parse the documents directly in prompts and query for differences
@@ -29,19 +29,33 @@ Two types of approach was used to evaluate the performance. Both the approaches 
 
 # Results
 
+All the results can be found in the ./output folder.
+
 ## Overall 
+Given the resource constraints, only gpt4-o was used as the main LLM. Different embedding models were investigated. Below we summarise the results based on llm-as-a-judge and g-eval metrics.
+
+1. The best overall approach was when parsing the full documents as a context. This is the baseline to compare against.
+2. The next best approach, which is more comprehensive is to combine an extraction pipeline with a summarisation chain. We can identify key topics and iteratively call extraction-summariser pipeline. This is more comprehensive as we identify the key differences within individual sub-topics.
+3. Graphrag seems to outperform any traditional RAG, as extraction of knowledge graph enables better information retreival. 
+4. In terms of embedding (evaluated only for RAG solutions), open source and domain specific quantised model outperform commercial solution (openai-ada). 
+5. We also tried to evaluate semantic chunking with normal chunking. In this particular case, normal chunking seems to perform better than semantic chunking. 
 
 
 # Standardisation of T&C documents
 
 Two different approaches to identify common topics for standardising T&C:
-1. LLM with structured output: Using prompt engineering and structured output, we can ideally look at ways to understand standard components.
+1. LLM with structured output: Using prompt engineering and structured output, we can ideally look at ways to understand standard components. (see /output/key_headings.json)
 2. Using Graphrag: This approach essentially builds a knowledge graph which captures the underlying structure of the document. We can then query the graphrag to extract common structures.(see /output/standardise_graphrag.txt)
 
-# Next steps and future direction
+Looking at the results, graphrag approach seems to generalise the structure well. LLM with structured output identifies common thread across both the documents, however, seems to be very specific to apple.
 
-## G-Eval
+# Conclusion, next steps and future direction
 
-## Other metrics 
+To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 
 
-ROGUE, BertScore, BLEU can be used to evaluate LLM output. Each of them have their own advantages and disadvantages.
+## Next steps
+1. We can extend the extractor-summariser pipeline into an agentic approach. Try multi-agentic approach.
+2. Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o.
+3. Prompt optimisation using DsPy
+4. Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs.
+
