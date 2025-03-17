@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+/graph_rag/cache/
+/graph_rag/input
+/graph_rag/logs
+/graph_rag/output
+/graph_rag/.env
+/data/faiss*
+.deepeval
+.deepeval*.*

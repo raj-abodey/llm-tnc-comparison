@@ -1,0 +1,22 @@
+{
+    "./output/baseline_overall.txt": {
+        "score": 1.0,
+        "reason": "The actual output accurately summarizes the key differences between the 2015 and 2023 terms and conditions documents, highlighting significant updates such as the expansion of service scope, detailed payment and refund policies, comprehensive account management features, privacy and data use improvements, and updated usage rules."
+    },
+    "./output/baseline_graphrag.txt": {
+        "score": 0.9,
+        "reason": "The actual output effectively summarizes the key differences between the 2015 and 2023 terms and presents the information in a clear and logical manner. However, it could include more specifics on how user rights and obligations have evolved."
+    },
+    "./output/baseline_openaiEmb_semanticChnk.txt": {
+        "score": 0.7,
+        "reason": "The actual_output clearly identified and analyzed the differences between the terms in the 2015 and 2023 documents, focusing on the definition and licensing terms for commercial items. However, it could be more concise and specific in highlighting the overall structural changes and their impact on users."
+    },
+    "./output/baseline_opensourceEmb_semanticChnk.txt": {
+        "score": 0.7,
+        "reason": "The actual output identifies and summarizes the key differences between the two terms and conditions documents, highlighting specific impacts to the user. It mentions changes in the termination clause, external services, warranty, limitation of liability, export compliance, and government end user rights. However, it could be more concise and clear in presenting these differences."
+    },
+    "./output/baseline_ollamaEmb_normalChnk.txt": {
+        "score": 1.0,
+        "reason": "The actual output effectively identifies key differences between the two documents, including auto-download rules, subscription services, and privacy considerations. It logically orders the information and assesses the impact on user experience accurately."
+    }
+}

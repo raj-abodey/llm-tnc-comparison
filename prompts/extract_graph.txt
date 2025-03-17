@@ -1,0 +1,272 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [company, person, email, address, account, service, content, device, software, subscription, privacy policy, transaction, payment method, license, security technology, usage rules, content provider, third-party service, in-app purchase, in-app subscription, refund policy, governing law]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in The primary language of the provided text is "English". as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into The primary language of the provided text is "English"., just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+entity_types: [company, person, email, address, account, service, content, device, software, subscription, privacy policy, transaction, payment method, license, security technology, usage rules, content provider, third-party service, in-app purchase, in-app subscription, refund policy, governing law]
+text:
+ of Content if the delivery has started upon your request and acknowledgement that you thereby lose your cancellation right.
+Model cancellation form:
+- To Apple Distribution International Ltd., iTunes Store Customer Support, Hollyhill Industrial Estate, Hollyhill, Cork, Republic of Ireland, rightofwithdrawal@apple.com:
+- I hereby give notice that I withdraw from my contract for the following:
+[INSERT ORDER ID, ITEM, ARTIST AND TYPE]
+- Ordered on [INSERT DATE] / received on [INSERT DATE]
+- Name of consumer
+- Address of consumer
+- Email address of consumer
+- Date
+ACCOUNT
+Using our Services and accessing your Content may require an Apple ID. An Apple ID is the account you use across Apple’s ecosystem. Use of Game Center is subject to this Agreement and also requires a Game Center account. Your account is valuable, and you are responsible for maintaining its confidentiality and security. Apple is not responsible for any losses arising from the unauthorized use of your account. Please contact Apple if you suspect that your account has been compromised.
+You must be age 13 (or equivalent minimum age in your Home Country, as set forth in the Apple ID creation process) to create an account and use our Services. Apple IDs for persons under this age can be created by a parent or legal guardian using Family Sharing or by an approved educational institution. A parent or legal guardian who is creating an account for a minor should review this Agreement with the minor to ensure that they both understand it.
+You may add, notify, or remove a Legacy Contact for your Apple ID as described in http://support.apple.com/HT212360. A Legacy Contact’s access to your Apple ID is limited as described in http://support.apple.com/HT212361.
+PRIVACY
+Your use of our Services is subject to Apple’s Privacy Policy, which is available at https://www.apple.com/legal/privacy/.
+SERVICES AND CONTENT USAGE RULES
+Your use of the Services and Content must follow the rules set forth in this section (“Usage Rules”). Any other use of the Services and Content is a material breach of this Agreement. Apple may monitor your use of the Services and Content to ensure that you are following these Usage Rules.
+All Services:
+- You may use the Services and Content only for personal, noncommercial purposes (except as set forth in the App Store Content section below or as otherwise specified by Apple).
+- Apple’s delivery of Services or Content does not transfer any commercial or promotional use rights to you, and does not constitute a grant or waiver of any rights of the copyright owners.
+- You can use Content from up to five different Apple IDs on each device.
+- For any Service, you can have up to 10 devices (but only a maximum of 5 computers) signed in with your Apple ID at one time, though simultaneous streams or downloads of Content may be limited to a lower number of devices as set out below under Apple Music and Apple TV content. Each computer must also be authorized using the same Apple ID (to learn more about authorization of computers, visit https://support.apple.com/HT201251). Devices can be associated with a different Apple ID once every 90 days.
+- Manipulating play counts, downloads, ratings, or reviews via any means — such as (i) using a bot, script, or automated process; or (ii) providing or accepting any kind of compensation or incentive — is prohibited.
+- It is your responsibility not to lose, destroy or damage Content once downloaded. We encourage you to back up your Content regularly.
+- You may not tamper with or circumvent any security technology included with the Services or Content.
+- You may access our Services only using Apple’s software, and may not modify or use modified versions of such software.
+- Video Content requires an HDCP connection.
+Audio and Video Content Sales and Rentals:
+- You can use Digital Rights Management (DRM)-free Content on a reasonable number of compatible devices that you own or control. DRM-protected Content can be used on up to five computers and any number of devices that you sync to from those computers.
+- Content rentals are viewable on a single device at a time, and must be played within 30 days, and completed within 48 hours of the start of play (stopping, pausing or restarting does not extend this period).
+- You may burn an audio playlist of purchased music to disc for listening purposes up to seven times; this limitation does not apply to DRM-free Content. Other Content may not be burned to disc. You may use the disc to which you have burned your Content in the same ways in which you may use a disc purchased from a retail store, subject to local copyright laws.
+- Purchased Content will generally remain available for you to download, redownload, or otherwise access from Apple. Though it is unlikely, subsequent to your purchase, Content may be removed from the Services (for instance, because the provider removed it) and become unavailable for further download or access from Apple. To ensure your ability to continue enjoying Content, we encourage you to download all purchased Content to a device in your possession and to back it up.
+App Store Content:
+- The term “Apps” includes apps and App Clips for any Apple platform and/or operating system, including any in-app purchases, extensions (such as keyboards), stickers, and subscriptions made available in such apps or App Clips.
+- Individuals acting on behalf of a commercial enterprise, governmental organization or educational institution (an “Enterprise”) may download and sync non-Arcade Apps for use by either (i) a single individual on one or more devices owned or controlled by an Enterprise; or (ii) multiple individuals on a single shared device owned or controlled by an Enterprise. For the sake of clarity, each device used serially or collectively by multiple users requires a separate license.
+Apple Music:
+- An Individual Apple Music membership allows you to stream on a single device at a time; a Family membership allows
+------------------------
+output:
+("entity"{tuple_delimiter}APPLE DISTRIBUTION INTERNATIONAL LTD.{tuple_delimiter}company{tuple_delimiter}Apple Distribution International Ltd. is the company to which the model cancellation form is addressed, located in Hollyhill Industrial Estate, Hollyhill, Cork, Republic of Ireland)
+{record_delimiter}
+("entity"{tuple_delimiter}ITUNES STORE CUSTOMER SUPPORT{tuple_delimiter}service{tuple_delimiter}iTunes Store Customer Support is the service provided by Apple for customer inquiries and support)
+{record_delimiter}
+("entity"{tuple_delimiter}HOLLYHILL INDUSTRIAL ESTATE, HOLLYHILL, CORK, REPUBLIC OF IRELAND{tuple_delimiter}address{tuple_delimiter}The address of Apple Distribution International Ltd. for sending the model cancellation form)
+{record_delimiter}
+("entity"{tuple_delimiter}RIGHTOFWITHDRAWAL@APPLE.COM{tuple_delimiter}email{tuple_delimiter}The email address provided for sending the model cancellation form to Apple Distribution International Ltd.)
+{record_delimiter}
+("entity"{tuple_delimiter}APPLE ID{tuple_delimiter}account{tuple_delimiter}An Apple ID is the account used across Apple’s ecosystem, required for using services and accessing content)
+{record_delimiter}
+("entity"{tuple_delimiter}GAME CENTER{tuple_delimiter}service{tuple_delimiter}Game Center is a service provided by Apple that requires a Game Center account to use)
+{record_delimiter}
+("entity"{tuple_delimiter}APPLE{tuple_delimiter}company{tuple_delimiter}Apple is the company responsible for providing the services and content mentioned in the document)
+{record_delimiter}
+("entity"{tuple_delimiter}FAMILY SHARING{tuple_delimiter}service{tuple_delimiter}Family Sharing is a service by Apple that allows parents or legal guardians to create Apple IDs for minors)
+{record_delimiter}
+("entity"{tuple_delimiter}APPLE’S PRIVACY POLICY{tuple_delimiter}privacy policy{tuple_delimiter}Apple’s Privacy Policy governs the use of services and is available at https://www.apple.com/legal/privacy/)
+{record_delimiter}
+("entity"{tuple_delimiter}USAGE RULES{tuple_delimiter}usage rules{tuple_delimiter}The rules set forth by Apple for the use of services and content)
+{record_delimiter}
+("entity"{tuple_delimiter}APPLE MUSIC{tuple_delimiter}service{tuple_delimiter}Apple Music is a service provided by Apple that allows streaming of music)
+{record_delimiter}
+("entity"{tuple_delimiter}APPLE TV{tuple_delimiter}service{tuple_delimiter}Apple TV is a service provided by Apple for streaming video content)
+{record_delimiter}
+("entity"{tuple_delimiter}DIGITAL RIGHTS MANAGEMENT (DRM){tuple_delimiter}security technology{tuple_delimiter}Digital Rights Management (DRM) is a security technology used to protect content)
+{record_delimiter}
+("entity"{tuple_delimiter}APP STORE{tuple_delimiter}service{tuple_delimiter}App Store is a service provided by Apple for downloading apps and App Clips)
+{record_delimiter}
+("entity"{tuple_delimiter}IN-APP PURCHASES{tuple_delimiter}in-app purchase{tuple_delimiter}In-app purchases are additional content or subscriptions available within apps)
+{record_delimiter}
+("entity"{tuple_delimiter}IN-APP SUBSCRIPTIONS{tuple_delimiter}in-app subscription{tuple_delimiter}In-app subscriptions are recurring payments for content or services within apps)
+{record_delimiter}
+("entity"{tuple_delimiter}ENTERPRISE{tuple_delimiter}company{tuple_delimiter}An Enterprise refers to a commercial enterprise, governmental organization, or educational institution that can download and sync non-Arcade Apps)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE DISTRIBUTION INTERNATIONAL LTD.{tuple_delimiter}ITUNES STORE CUSTOMER SUPPORT{tuple_delimiter}iTunes Store Customer Support is a service provided by Apple Distribution International Ltd.{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE ID{tuple_delimiter}GAME CENTER{tuple_delimiter}Using Game Center requires an Apple ID{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE ID{tuple_delimiter}FAMILY SHARING{tuple_delimiter}Family Sharing allows parents or legal guardians to create Apple IDs for minors{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE{tuple_delimiter}APPLE’S PRIVACY POLICY{tuple_delimiter}Apple’s Privacy Policy governs the use of Apple’s services{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE{tuple_delimiter}USAGE RULES{tuple_delimiter}Apple sets the usage rules for its services and content{tupledelimter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE MUSIC{tuple_delimiter}APPLE ID{tuple_delimiter}An Apple ID is required to use Apple Music{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}APPLE TV{tuple_delimiter}APPLE ID{tuple_delimiter}An Apple ID is required to use Apple TV{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}DIGITAL RIGHTS MANAGEMENT (DRM){tuple_delimiter}APPLE{tuple_delimiter}Apple uses Digital Rights Management (DRM) to protect content{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}APP STORE{tuple_delimiter}APPLE{tuple_delimiter}The App Store is a service provided by Apple{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}IN-APP PURCHASES{tuple_delimiter}APP STORE{tuple_delimiter}In-app purchases are available within apps downloaded from the App Store{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}IN-APP SUBSCRIPTIONS{tuple_delimiter}APP STORE{tuple_delimiter}In-app subscriptions are available within apps downloaded from the App Store{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}ENTERPRISE{tuple_delimiter}APP STORE{tuple_delimiter}Enterprises can download and sync non-Arcade Apps from the App Store{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+entity_types: [company, person, email, address, account, service, content, device, software, subscription, privacy policy, transaction, payment method, license, security technology, usage rules, content provider, third-party service, in-app purchase, in-app subscription, refund policy, governing law]
+text:
+parable part of the iTunes Products. iTunes reserves the right to modify the Usage Rules for future purchases on the Service at any time. However, such changes will not apply to iTunes Products that you have already purchased. Any change to the Usage Rules will be communicated to you. In the event that you refuse to accept the new Usage Rules, you will no longer be able to acquire iTunes Products from the Service.
+USAGE RULES
+(i) You shall be authorised to use iTunes Products only for personal, noncommercial use. For details of your rights and restrictions on your rights to use the iTunes Products, see:
+• http://www.prsformusic.com
+• http://www.warnerchappell.com/wcmuk/pedl.jsp
+• http://www.sacem.fr
+• http://www.sdrm.fr
+• http://www.sesam.org
+(ii) You shall be authorised to use iTunes Products on five computers with the iTunes application installed at any time, except for Film Rentals (see below).
+(iii) You shall be able to store iTunes Products from up to five different Accounts at a time on compatible devices, such as an iPad, iPod, iPhone and Apple TV, provided that each iPhone may sync tone iTunes Products with only a single iTunes-authorised device at a time, and syncing an iPhone with a different iTunes-authorised device will cause tone iTunes Products stored on that iPhone to be erased.
+(iv) You shall be authorised to burn an audio playlist up to seven times. You may use the audio CD to which you have burned your iTunes Products in the same ways in which you may use an audio CD purchased from a retail store, subject to United Kingdom copyright laws.
+(v) You shall not be entitled to burn video iTunes Products or tone iTunes Products other than for backup purposes, which video iTunes Product backups will play via the iTunes application.
+(vi) iTunes Plus Products do not contain security technology that limits your usage of such iTunes Products, and Usage Rules (ii) – (v) do not apply to iTunes Plus Products. You may copy, store, and burn iTunes Plus Products as reasonably necessary for personal, noncommercial use.
+(vii) You shall be able to manually sync a film from at least one iTunes-authorised device to devices that have manual sync mode, provided that the film is associated with an Account on the primary iTunes-authorised device, where the primary iTunes-authorised device is the one that was first synced with the device or the one that you subsequently designate as primary using the iTunes application.
+(viii) An HDCP connection is required to view films and TV shows transmitted over HDMI.
+(ix) Film Rentals
+(a) Film rentals are viewable on only one device at a time. You must be connected to the Service when moving film rentals, and you may do so only between your computer and other compatible devices. Films rented using your Apple TV or iPad, iPhone 4 or iPod touch may not be moved. If you move a film to a compatible device and then use the Service to restore that device, or choose Settings > Reset > Erase all content and settings on that device, the film will be permanently deleted.
+(b) Once you purchase a rental, you must fully download the rental within thirty (30) days. You have thirty (30) days after downloading a film to begin viewing. Once you begin viewing, you have forty-eight (48) hours to finish viewing the film. Stopping, pausing, or restarting a film does not extend the available time for viewing.
+Some iTunes Products, including but not limited to Film rentals, may be downloaded only once and cannot be replaced if lost for any reason; it is your responsibility not to lose, destroy, or damage iTunes Products once downloaded, and to back them up.
+The delivery of iTunes Products does not transfer to you any commercial or promotional use rights in the iTunes Products. Any burning or exporting capabilities are solely an accommodation to you and shall not constitute a grant, waiver, or other limitation of any rights of the copyright owners in any content embodied in any iTunes Product.
+You acknowledge that some aspects of the Service, iTunes Products, and administration of the Usage Rules entails the ongoing involvement of iTunes.
+CONTENT SECURITY
+You agree not to violate, circumvent, reverse-engineer, decompile, disassemble, or otherwise tamper with any element of the Security Framework—or to attempt or assist another person to do so. Notwithstanding any other provisions, you are allowed to burn audio iTunes Products to CD, within the limits of the Usage Rules. The Usage Rules may be controlled and monitored by iTunes for compliance purposes, and iTunes reserves the right to enforce the Usage Rules without notice to you.
+SERVICE SECURITY
+You agree not to access the Service by any means other than through use of software provided by Apple Inc. or its affiliated group companies (“Apple”) for accessing the Service. You agree not to modify the software that is provided by Apple to access the Service in any manner or form, or to use modified versions of the software, for any purposes including obtaining unauthorised access to the Service. You shall not access or attempt to access an Account that you are not authorised to access. Violations of system or network security may result in civil or criminal liability.
+SEASON PASS, MULTI-PASS
+The full price of the Season Pass or Multi-Pass is charged upon purchase. Refunds are available as set out in our refund policy above;. no other refunds, returns or cancellations after purchase. You must connect to the Service and download any remaining Pass content within 90 days after the final Pass content becomes available (or such other time period as may be specified on the purchase page), after which that content may no longer be available for download as part of the purchase. If automatic renewal is selected when you purchase a Multi-Pass, you will be charged the full price of each subsequent Multi-Pass cycle, unless and until you cancel automatic renewal prior to the
+------------------------
+output:
+("entity"||ITUNES||company||iTunes is a digital media store and service provided by Apple Inc. that offers a variety of digital content including music, movies, TV shows, and apps)
+{record_delimiter}
+("entity"||APPLE INC.||company||Apple Inc. is the company that provides the software and services for accessing iTunes)
+{record_delimiter}
+("entity"||USAGE RULES||usage rules||The Usage Rules are the guidelines set by iTunes for the use of its products, including limitations on copying, storing, and burning content)
+{record_delimiter}
+("entity"||HTTP://WWW.PRSFORMUSIC.COM||content provider||PRS for Music is a content provider that offers details on rights and restrictions for using iTunes Products)
+{record_delimiter}
+("entity"||HTTP://WWW.WARNERCHAPPELL.COM/WCMUK/PEDL.JSP||content provider||Warner Chappell is a content provider that offers details on rights and restrictions for using iTunes Products)
+{record_delimiter}
+("entity"||HTTP://WWW.SACEM.FR||content provider||SACEM is a content provider that offers details on rights and restrictions for using iTunes Products)
+{record_delimiter}
+("entity"||HTTP://WWW.SDRM.FR||content provider||SDRM is a content provider that offers details on rights and restrictions for using iTunes Products)
+{record_delimiter}
+("entity"||HTTP://WWW.SESAM.ORG||content provider||SESAM is a content provider that offers details on rights and restrictions for using iTunes Products)
+{record_delimiter}
+("entity"||ITUNES PRODUCTS||content||iTunes Products refer to the digital content available for purchase or rental on iTunes, including music, movies, TV shows, and apps)
+{record_delimiter}
+("entity"||ITUNES APPLICATION||software||The iTunes application is the software provided by Apple Inc. for accessing and managing iTunes Products)
+{record_delimiter}
+("entity"||IPAD||device||The iPad is a tablet device by Apple Inc. that can store and play iTunes Products)
+{record_delimiter}
+("entity"||IPOD||device||The iPod is a portable media player by Apple Inc. that can store and play iTunes Products)
+{record_delimiter}
+("entity"||IPHONE||device||The iPhone is a smartphone by Apple Inc. that can store and play iTunes Products)
+{record_delimiter}
+("entity"||APPLE TV||device||Apple TV is a digital media player by Apple Inc. that can stream and play iTunes Products)
+{record_delimiter}
+("entity"||UNITED KINGDOM COPYRIGHT LAWS||governing law||United Kingdom copyright laws govern the use of iTunes Products, including restrictions on copying and burning content)
+{record_delimiter}
+("entity"||ITUNES PLUS PRODUCTS||content||iTunes Plus Products are a type of iTunes Products that do not contain security technology limiting their usage)
+{record_delimiter}
+("entity"||HDCP CONNECTION||security technology||An HDCP connection is required to view films and TV shows transmitted over HDMI on iTunes)
+{record_delimiter}
+("entity"||FILM RENTALS||content||Film rentals are movies available for temporary viewing on iTunes, subject to specific usage rules)
+{record_delimiter}
+("entity"||SEASON PASS||subscription||Season Pass is a subscription service on iTunes that allows users to purchase a full season of TV shows)
+{record_delimiter}
+("entity"||MULTI-PASS||subscription||Multi-Pass is a subscription service on iTunes that allows users to purchase multiple episodes of TV shows)
+{record_delimiter}
+("entity"||REFUND POLICY||refund policy||The refund policy outlines the conditions under which refunds are available for purchases on iTunes)
+{record_delimiter}
+("entity"||SECURITY FRAMEWORK||security technology||The Security Framework is the system used by iTunes to protect its content and enforce usage rules)
+{record_delimiter}
+("entity"||SERVICE||service||The Service refers to the iTunes platform and its associated functionalities for purchasing, downloading, and managing digital content)
+{record_delimiter}
+("entity"||ACCOUNT||account||An Account is a user profile on iTunes that allows access to purchased content and services)
+{record_delimiter}
+("relationship"||ITUNES||APPLE INC.||iTunes is a service provided by Apple Inc.||10)
+{record_delimiter}
+("relationship"||ITUNES||USAGE RULES||The Usage Rules are set by iTunes to govern the use of its products||9)
+{record_delimiter}
+("relationship"||ITUNES||HTTP://WWW.PRSFORMUSIC.COM||PRS for Music provides details on rights and restrictions for using iTunes Products||7)
+{record_delimiter}
+("relationship"||ITUNES||HTTP://WWW.WARNERCHAPPELL.COM/WCMUK/PEDL.JSP||Warner Chappell provides details on rights and restrictions for using iTunes Products||7)
+{record_delimiter}
+("relationship"||ITUNES||HTTP://WWW.SACEM.FR||SACEM provides details on rights and restrictions for using iTunes Products||7)
+{record_delimiter}
+("relationship"||ITUNES||HTTP://WWW.SDRM.FR||SDRM provides details on rights and restrictions for using iTunes Products||7)
+{record_delimiter}
+("relationship"||ITUNES||HTTP://WWW.SESAM.ORG||SESAM provides details on rights and restrictions for using iTunes Products||7)
+{record_delimiter}
+("relationship"||ITUNES||ITUNES PRODUCTS||iTunes Products are the digital content available on iTunes||10)
+{record_delimiter}
+("relationship"||ITUNES||ITUNES APPLICATION||The iTunes application is the software used to access and manage iTunes Products||10)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||ITUNES APPLICATION||The iTunes application is used to access and manage iTunes Products||10)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||IPAD||iTunes Products can be stored and played on an iPad||9)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||IPOD||iTunes Products can be stored and played on an iPod||9)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||IPHONE||iTunes Products can be stored and played on an iPhone||9)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||APPLE TV||iTunes Products can be streamed and played on Apple TV||9)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||UNITED KINGDOM COPYRIGHT LAWS||United Kingdom copyright laws govern the use of iTunes Products||8)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||ITUNES PLUS PRODUCTS||iTunes Plus Products are a type of iTunes Products without security technology limitations||8)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||HDCP CONNECTION||An HDCP connection is required to view certain iTunes Products over HDMI||7)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||FILM RENTALS||Film rentals are a type of iTunes Products available for temporary viewing||8)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||SEASON PASS||Season Pass is a subscription service for purchasing TV show seasons on iTunes||7)
+{record_delimiter}
+("relationship"||ITUNES PRODUCTS||MULTI-PASS||Multi-Pass is a subscription service for purchasing multiple TV show episodes on iTunes||7)
+{record_delimiter}
+("relationship"||ITUNES||REFUND POLICY||The refund policy outlines the conditions for refunds on iTunes||8)
+{record_delimiter}
+("relationship"||ITUNES||SECURITY FRAMEWORK||The Security Framework is used by iTunes to protect its content and enforce usage rules||9)
+{record_delimiter}
+("relationship"||ITUNES||SERVICE||The Service refers to the iTunes platform and its functionalities||10)
+{record_delimiter}
+("relationship"||ITUNES||ACCOUNT||An Account is required to access iTunes services and content||10)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+entity_types: [company, person, email, address, account, service, content, device, software, subscription, privacy policy, transaction, payment method, license, security technology, usage rules, content provider, third-party service, in-app purchase, in-app subscription, refund policy, governing law]
+text: {input_text}
+######################
+output:

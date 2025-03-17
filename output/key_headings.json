@@ -1,0 +1,92 @@
+{
+    "key_headings": [
+        {
+            "heading": "Introduction to Our Services",
+            "description": "This section provides an overview of the services offered by Apple, including the types of content available and the requirements for using the services."
+        },
+        {
+            "heading": "Payments, Taxes, and Refunds",
+            "description": "This section outlines the payment methods accepted, how taxes are handled, and the refund policy for transactions made through Apple's services."
+        },
+        {
+            "heading": "Account",
+            "description": "This section covers the requirements for creating and maintaining an Apple ID, including age restrictions and responsibilities for account security."
+        },
+        {
+            "heading": "Privacy",
+            "description": "This section explains how Apple handles user data and privacy, including a link to Apple's Privacy Policy."
+        },
+        {
+            "heading": "Services and Content Usage Rules",
+            "description": "This section details the rules for using Apple's services and content, including restrictions on usage and the number of devices that can be associated with an Apple ID."
+        },
+        {
+            "heading": "Downloads",
+            "description": "This section describes the limitations and rules regarding downloading content from Apple's services."
+        },
+        {
+            "heading": "Subscriptions",
+            "description": "This section covers the terms and conditions for subscription-based services offered by Apple, including automatic renewal and cancellation policies."
+        },
+        {
+            "heading": "Content and Service Availability",
+            "description": "This section explains the availability of content and services, including regional restrictions and the impact of traveling outside the user's home country."
+        },
+        {
+            "heading": "Third-Party Devices and Equipment",
+            "description": "This section addresses the use of Apple's services on non-Apple devices and the terms for using third-party equipment."
+        },
+        {
+            "heading": "Your Submissions to Our Services",
+            "description": "This section outlines the guidelines and rules for submitting content to Apple's services, including user-generated content like comments, ratings, and reviews."
+        },
+        {
+            "heading": "Family Sharing",
+            "description": "This section explains the Family Sharing feature, including the roles and responsibilities of the organizer and family members, and the rules for sharing content and subscriptions."
+        },
+        {
+            "heading": "Series Pass and Multi-Pass",
+            "description": "This section covers the terms for purchasing and receiving television content through Series Pass and Multi-Pass options."
+        },
+        {
+            "heading": "Additional App Store Terms",
+            "description": "This section provides additional terms specific to the App Store, including licensing, in-app purchases, and app bundles."
+        },
+        {
+            "heading": "Additional Apple Music Terms",
+            "description": "This section includes specific terms for using Apple Music, including iCloud Music Library and the rules for streaming and downloading music."
+        },
+        {
+            "heading": "Additional Apple Fitness+ Terms",
+            "description": "This section outlines the terms for using Apple Fitness+, including disclaimers about medical advice and safety."
+        },
+        {
+            "heading": "Carrier Membership",
+            "description": "This section explains the terms for purchasing service memberships through wireless carriers, including billing and account information sharing."
+        },
+        {
+            "heading": "Miscellaneous Terms Applicable to All Services",
+            "description": "This section includes various terms that apply to all of Apple's services, such as definitions, contract changes, third-party materials, intellectual property, and governing law."
+        },
+        {
+            "heading": "Termination and Suspension of Services",
+            "description": "This section details the conditions under which Apple may terminate or suspend services, including user responsibilities and the impact on access to content."
+        },
+        {
+            "heading": "Disclaimer of Warranties; Liability Limitations",
+            "description": "This section outlines the limitations of Apple's warranties and liabilities, including user responsibilities for data backup and the handling of service interruptions."
+        },
+        {
+            "heading": "Statutory Exceptions for Public Institutions",
+            "description": "This section provides exceptions to certain terms for qualified public educational or government institutions based on applicable laws."
+        },
+        {
+            "heading": "Governing Law",
+            "description": "This section specifies the governing law and jurisdiction for disputes related to the terms and conditions."
+        },
+        {
+            "heading": "Other Provisions",
+            "description": "This section includes additional provisions that apply to the terms and conditions, such as compliance with laws, risk of loss, and notification methods."
+        }
+    ]
+}

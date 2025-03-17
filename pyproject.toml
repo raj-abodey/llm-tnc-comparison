@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "llm-tnc-comparison"
+version = "0.1.0"
+description = "compare terms & conditions documents using llms"
+authors = ["raj"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12"
+langchain-core = "^0.3.41"
+langchain-openai = "^0.3.7"
+transformers = "^4.49.0"
+torch = "^2.6.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+sentence-transformers = "^3.4.1"
+jupyterlab = "^4.3.5"
+langchain-community = "^0.3.19"
+faiss-cpu = "^1.10.0"
+langchain = "^0.3.20"
+langchain-huggingface = "^0.1.2"
+langchain-ollama = "^0.2.3"
+langchain-experimental = "^0.3.4"
+graphrag = "^2.1.0"
+deepeval = "^2.5.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

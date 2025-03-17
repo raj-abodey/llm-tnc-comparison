@@ -1,0 +1,55 @@
+Based on the provided context, here is an analysis and summary of the key differences between the two sets of terms and conditions documents from 2015:
+
+### Document 1: iTunes Eligible Content and iTunes Match (Document ID: 5c807664-936b-48ed-8bb9-368bc954fdea)
+
+#### Key Points:
+1. **Auto-downloads and Associated Devices**:
+   - Users can auto-download purchased music, TV shows, and music videos to compatible iOS devices and authorized computers.
+   - Restrictions include a maximum of 10 associated devices per account, with no more than 5 being authorized computers (Clause (i)).
+   - An associated device can only be linked to one account at a time and can switch accounts only once every 90 days (Clauses (ii) & (iii)).
+
+2. **Content Availability**:
+   - Previously acquired content may not always be available for re-download.
+   - Users are responsible for backing up their content to avoid loss or damage.
+
+3. **Apple TV Usage**:
+   - Apple TVs are not considered "Associated Devices," but users can play back purchased movies or TV shows on them with limitations on simultaneous playback.
+
+4. **Data Charges**:
+   - Significant data charges may apply when downloading large pieces of content over a data connection.
+
+5. **iTunes Match Service**:
+   - Allows remote access to matched/uploaded songs, purchased music videos, metadata, playlists.
+   - Requires an annual subscription fee that auto-renews unless canceled.
+   
+### Document 2: App Store Products including In-App Purchases & Subscriptions (Document ID: 465e6144-d568-49f8-9401-a249202073d4)
+
+#### Key Points:
+1. **In-App Purchases**:
+    - Consumable in-app purchases cannot be transferred among devices or replaced if lost/damaged after download.
+    - Authentication is required for each purchase; however, additional purchases within fifteen minutes do not require re-authentication.
+
+2. **In-App Subscriptions**:
+    - Automatically renew unless canceled by adjusting settings in the user’s account.
+    - Price increases will turn off auto-renewal automatically.
+    – Free trials are available for certain subscriptions; users must turn off auto-renewal during this period if they do not wish to continue.
+
+3. **Privacy Concerns with Publishers**:
+    – User information such as name, email address, postcode may be shared with publishers upon user consent for marketing purposes according to publisher's privacy policy.
+
+4. **Popular Near Me Feature**: 
+    – Collects anonymous usage data related to App Store products when Location Services are enabled by the user.
+
+
+### Summary of Key Differences:
+
+#### Impact on Auto-downloads/Content Management
+- The first document focuses heavily on managing downloaded content across multiple devices under strict association rules which limit device switching frequency and number of associated devices per account ((Clauses i)-(iv)). This impacts how users manage their media libraries across different platforms significantly more than what is discussed in Document 2 regarding app-related purchases/subscriptions without such stringent device management rules.
+
+#### Subscription Services
+- Both documents discuss subscription services but differ in scope; Document 1 covers "iTunes Match" which deals specifically with music libraries while Document 2 discusses broader "In-App Subscriptions" applicable within various apps including automatic renewal policies along with free trial periods impacting how users manage ongoing costs differently based upon service type subscribed ((Document ID:465e6144-d568...).
+
+#### Privacy Considerations
+– The second document introduces potential sharing of personal information like name/email/postcode with third-party publishers subjecting users' privacy preferences directly influencing marketing communications received post-consent ((Document ID:465e6144-d568...).
+
+Overall these differences highlight varying degrees affecting user experience primarily around media/content management versus app-specific transactions/subscription handling alongside evolving privacy implications tied into newer functionalities introduced over time between both sets analyzed from respective years provided above
