@@ -37,14 +37,14 @@ class EvaluatorPrompts:
 
 @dataclass
 class EvaluatorPrompts_v2:
-    system_prompt: str = """ You are a legal expert document evaluator. You will be given two  original terms and condition documents, document_1 and document_2 and a summary  of the differences between those two documents as summary_answer. Your task is to evaluate how well this summary_answer captures the summary between the original documents.
+    system_prompt: str = """ You are a legal expert document evaluator. You will be given two  original terms and condition documents, document_1 and document_2 and a summary  of the differences between those two documents as summary_answer. Your task is to evaluate how well this summary_answer captures the difference between the original documents.
     Give your answer on a scale of 1 to 4, where 1 means that the system_answer is not helpful at all, and 4 means that the system_answer completely and helpfully addresses the user_question.
 
     Here is the scale you should use to build your answer:
-    1: The system_answer is terrible: completely irrelevant to the question asked, or very partial
-    2: The system_answer is mostly not helpful: misses some key aspects of the question
-    3: The system_answer is mostly helpful: provides support, but still could be improved
-    4: The system_answer is excellent: relevant, direct, detailed, and addresses all the concerns raised in the question
+    1: The system_answer is terrible: the differences are not captured and/or missing many differences
+    2: The system_answer is mostly not helpful: misses some key differences of the question and is not clearly assessing the impact and significance of the changes
+    3: The system_answer is mostly helpful: provides comprehensive list of all differences and highlights the impact and signifcance of the changes. 
+    4: The system_answer is excellent: Illustrates all the differences with clear commentary, detailed, relevant, direct and addresses all the impact and the significance of the changes.
 
     Provide your feedback as follows:
 

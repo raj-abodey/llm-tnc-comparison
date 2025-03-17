@@ -27,9 +27,18 @@ Two types of approach was used to evaluate the performance. Both the approaches 
 1. LLM-as-a-judge type: In this approach, we design a LLM chain to be the judge and ask the llm to rank the llm output.
 2. G-eval: This is also similar to the above, but uses chain of thought and is customisable to different tasks. 
 
-# Evaluation
+# Results
 
-## LLM-as judge
+## Overall 
+
+
+# Standardisation of T&C documents
+
+Two different approaches to identify common topics for standardising T&C:
+1. LLM with structured output: Using prompt engineering and structured output, we can ideally look at ways to understand standard components.
+2. Using Graphrag: This approach essentially builds a knowledge graph which captures the underlying structure of the document. We can then query the graphrag to extract common structures.(see /output/standardise_graphrag.txt)
+
+# Next steps and future direction
 
 ## G-Eval
 
