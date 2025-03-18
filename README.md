@@ -87,5 +87,5 @@ To conclude, gpt-4o along with the whole documents as a context is the best appr
 1. We can extend the extractor-summariser pipeline into an agentic approach. Try multi-agentic approach.
 2. Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o.
 3. Prompt optimisation using DsPy
-4. Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs. Frameworks such as flow judge or uptrain consists different evaluation metrics which can be used to evaluate LLM output.
+4. Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs. Frameworks such as [flow judge](https://www.flow-ai.com/judge) or [uptrain](https://uptrain.ai/) consists different evaluation metrics which can be used to evaluate LLM output.
 
