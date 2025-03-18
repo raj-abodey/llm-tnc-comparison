@@ -103,7 +103,7 @@ def get_summaries(
         presence_penalty=0,
         seed=42,
     )
-    # llm_structured_output = llm.with_structured_output(Response)
+
     prompt = TNCLegalPrompts.system_prompt
     prompt = ChatPromptTemplate.from_template(prompt)
 
@@ -120,10 +120,33 @@ def get_summaries(
 
 
 if __name__ == "__main__":
-    # get_summaries(use_semantic_chunker=False)
-    # get_summaries(use_open_ai_embeddings=False, use_semantic_chunker=False)
+    get_summaries(
+        use_open_ai_embeddings=True,
+        use_semantic_chunker=False,
+        use_ollama_embedding=False,
+    )
+    get_summaries(
+        use_open_ai_embeddings=True,
+        use_semantic_chunker=True,
+        use_ollama_embedding=False,
+    )
     get_summaries(
         use_open_ai_embeddings=False,
         use_semantic_chunker=False,
+        use_ollama_embedding=False,
+    )
+    get_summaries(
+        use_open_ai_embeddings=False,
+        use_semantic_chunker=True,
+        use_ollama_embedding=False,
+    )
+    get_summaries(
+        use_open_ai_embeddings=False,
+        use_semantic_chunker=False,
+        use_ollama_embedding=True,
+    )
+    get_summaries(
+        use_open_ai_embeddings=False,
+        use_semantic_chunker=True,
         use_ollama_embedding=True,
     )

@@ -49,6 +49,31 @@ Two different approaches to identify common topics for standardising T&C:
 
 Looking at the results, graphrag approach seems to generalise the structure well. LLM with structured output identifies common thread across both the documents, however, seems to be very specific to apple.
 
+# To replicate results
+
+## Directories
+1. data: Contains the input files
+2. output: Contains all the output from the llm 
+
+## Basline with no RAG
+ ```python 
+ python baseline_summary_no_rag.py
+ ```
+
+## Basline
+ ```python 
+ python baseline_summary.py
+ ```
+## Graphrag
+```sh
+sh graph_rag_exp.sh
+```
+
+## Extractive Summary
+```python
+python extractive_summary.py
+```
+
 # Conclusion, next steps and future direction
 
 To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 

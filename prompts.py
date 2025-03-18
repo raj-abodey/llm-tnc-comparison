@@ -12,6 +12,7 @@ class TNCLegalPrompts:
     """
 
 
+@dataclass
 class TNCLegalPrompts_v2:
     system_prompt: str = """ You are a legal AI assisstant who has extensive knowledge about terms and conditions/terms of service. You will be given two terms and condition documents, 2015_document and 2023_document.Your task is to identify the differences between them and summarise the differences. Particularly analyse the impact and the significance of the changes.
 
