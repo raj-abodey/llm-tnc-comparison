@@ -69,6 +69,11 @@ Looking at the results, graphrag approach seems to generalise the structure well
 sh graph_rag_exp.sh
 ```
 
+## Standardisation using structured output
+```python
+python key_headings.py
+```
+
 ## Extractive Summary
 ```python
 python extractive_summary.py
@@ -76,11 +81,11 @@ python extractive_summary.py
 
 # Conclusion, next steps and future direction
 
-To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 
+To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able to parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 
 
 ## Next steps
 1. We can extend the extractor-summariser pipeline into an agentic approach. Try multi-agentic approach.
 2. Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o.
 3. Prompt optimisation using DsPy
-4. Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs.
+4. Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs. Frameworks such as flow judge or uptrain consists different evaluation metrics which can be used to evaluate LLM output.
 
