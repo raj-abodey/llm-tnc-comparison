@@ -18,7 +18,7 @@ Embedding models evaluated:
 1. **Baseline with no RAG**: Parse the documents directly in prompts and query for differences
 2. **Baseline with RAG**: Instead of parsing the documents directly, we use a RAG solution. Here we evaluate different embedding models and different chunking techniques.
 3. **Baseline with graphrag**: We use graphRAG, where we build knowledge graph on the documents, which then allows us to query efficiently.
-4. **Extractive Summary**: In order to get all the relevant information, we first identify key topics. Then we first use LLM to extract the relevant piece of information from each document, which is then passed on to a different summarising chain to comment on the differences. This approach allows us to focus on key segments and make sure tha relevant information is passed on. Such an approach will allow us to query efficiently with a small context window.
+4. **Extractive Summary**: In order to get all the relevant information, we first identify key topics. Then we first use LLM to extract the relevant piece of information from each document, which is then passed on to a different summarising chain to comment on the differences. This approach allows us to focus on key segments and make sure the relevant information is passed on. Such an approach will allow us to query efficiently with a small context window.
 5. **Agentic solution**: Another potential approach is to combine graphrag with an agentic approach (ReAct or multi-agent). This will allow us to extract the relevant information and summarise, i.e automatically carry out extractive summary by agent exploring or using tools.
 
 ## Evaluation of the document comparison
@@ -84,8 +84,8 @@ python extractive_summary.py
 To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able to parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 
 
 ## Next steps
-- We can extend the extractor-summariser pipeline into an agentic approach. Try multi-agentic approach.
-- Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o.
+- We can extend the extractor-summariser pipeline into an agentic approach. In particular we can use multi-agentic approach to explore and summarise. 
+- Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o. Chain of thought prompting, reasoning and thinking (inference time reasoning) are other techniques which can aid in improving the quality of the output. We evaluated different chunking techniques, however in this paritcular case the results were inconclusive. Further investigation is needed.
 - Prompt optimisation using DsPy
 - Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs. Frameworks such as [flow judge](https://www.flow-ai.com/judge) or [uptrain](https://uptrain.ai/) consists different evaluation metrics which can be used to evaluate LLM output.
 
