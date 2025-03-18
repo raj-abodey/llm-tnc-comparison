@@ -31,7 +31,7 @@ Two types of approach was used to evaluate the performance. Both the approaches 
 
 All the results can be found in the ./output folder.
 
-## Overall 
+## Summarisation of the differences 
 Given the resource constraints, only gpt4-o was used as the main LLM. Different embedding models were investigated. Below we summarise the results based on llm-as-a-judge and g-eval metrics.
 
 1. The best overall approach was when parsing the full documents as a context. This is the baseline to compare against.
@@ -41,7 +41,7 @@ Given the resource constraints, only gpt4-o was used as the main LLM. Different 
 5. We also tried to evaluate semantic chunking with normal chunking. In this particular case, normal chunking seems to perform better than semantic chunking. 
 
 
-# Standardisation of T&C documents
+## Standardisation of T&C documents
 
 Two different approaches to identify common topics for standardising T&C:
 1. LLM with structured output: Using prompt engineering and structured output, we can ideally look at ways to understand standard components. (see /output/key_headings.json)
