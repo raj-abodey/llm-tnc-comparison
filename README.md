@@ -32,7 +32,7 @@ Two types of approach was used to evaluate the performance. Both the approaches 
 All the results can be found in the ./output folder.
 
 ## Summarisation of the differences 
-Given the resource constraints, only gpt4-o was used as the main LLM. Different embedding models were investigated. Below we summarise the results based on llm-as-a-judge and g-eval metrics.
+Given the resource constraints, only gpt4-o was used as the main LLM. Different embedding models were investigated. Below we summarise the results based on llm-as-a-judge and g-eval metrics. (see ./output/geval_result.json and ./output/llm_as_judge.json)
 
 * The best overall approach was when parsing the full documents as a context. This is the baseline to compare against.
 * The next best approach, which is more comprehensive is to combine an extraction pipeline with a summarisation chain. We can identify key topics and iteratively call extraction-summariser pipeline. This is more comprehensive as we identify the key differences within individual sub-topics.
@@ -81,11 +81,12 @@ python extractive_summary.py
 
 # Conclusion, next steps and future direction
 
-To conclude, gpt-4o along with the whole documents as a context is the best approach. However, not in all cases we will be able to parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches based on using LLMs. 
+To conclude, gpt-4o along with the whole documents provided as a context is the best approach. However, not in all cases we will be able to parse the whole documents into the prompt as context window will be limited. We can use extractive-summariser pipeline or use graphrag. For standardising t&c documents, graphrag provides the best approach. We have evaluated these using two approaches using LLM based evaluators.  
 
 ## Next steps
 - We can extend the extractor-summariser pipeline into an agentic approach. In particular we can use multi-agentic approach to explore and summarise. 
 - Domain specific embedding seem to improve performance. We can investigate the use of the domain specific fine-tuned LLM as a replacement to gpt-4o. Chain of thought prompting, reasoning and thinking (inference time reasoning) are other techniques which can aid in improving the quality of the output. We evaluated different chunking techniques, however in this paritcular case the results were inconclusive. Further investigation is needed.
 - Prompt optimisation using DsPy
+- Structured output
 - Evaluation of llm output is still an active research field. We used LLMs based approach, however, these approaches will have bias and high computation cost, and inconsistent across different summaries. Ideally, we would need human in the feedback loop. This can then be augmented to fine-tune LLMs. Frameworks such as [flow judge](https://www.flow-ai.com/judge) or [uptrain](https://uptrain.ai/) consists different evaluation metrics which can be used to evaluate LLM output.
 
